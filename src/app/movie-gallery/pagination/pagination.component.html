@@ -1,0 +1,23 @@
+<nav class="navbar" aria-label="Page navigation example">
+    <div class="container-fluid justify-content-center">
+        <ul class="pagination">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <button class="page-link" (click)=changePage(currentPage-1)>
+                    Previous
+                </button>
+            </li>
+            @for(p of getPagesAsArray(); track $index) {
+            <li class="page-item" [class.active]="p === currentPage">
+                <button class="page-link" (click)=changePage(p)>
+                    {{p}}
+                </button>
+            </li>
+            }
+            <li class="page-item">
+                <button class="page-link" [class.disabled]="currentPage === pages" (click)=changePage(currentPage+1)>
+                    Next
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>

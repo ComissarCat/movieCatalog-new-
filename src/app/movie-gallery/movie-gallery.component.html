@@ -1,0 +1,13 @@
+@if(response)
+{
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4">
+    @for(m of response.Search; track m.Title){
+    <app-movie-card [movie]=m />
+    }
+</div>
+@if(pages > 1){
+<div class="container">
+    <app-pagination [pages]=pages />
+</div>
+}
+}
