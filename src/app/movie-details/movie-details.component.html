@@ -38,6 +38,13 @@
                 <div class="col-3 fw-bold">Awards:</div>
                 <div class="col-9">{{response.Awards}}</div>
             </div>
+            <div class="row">
+                <div class="col-3 fw-bold">Plot:</div>
+                <div class="col-9">{{response.Plot}}</div>
+                <button class="btn" (click)=changePlot()>
+                    Изменить описание (длинное/короткое)
+                </button>
+            </div>
         </div>
     </div>
     }

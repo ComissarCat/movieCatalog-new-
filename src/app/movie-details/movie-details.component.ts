@@ -13,10 +13,12 @@ import { RouterLink } from '@angular/router';
 })
 export class MovieDetailsComponent {
   @Input() set id(imdbID: string) {
-    this.searchMovieService.fetchDetails(imdbID, "short");
+    this.plot = "short";
+    this.searchMovieService.fetchDetails(imdbID, this.plot);
   }
   subscription: Subscription;
   response!: ResponseDetails | null;
+  plot!: string;
 
   constructor(private searchMovieService: SearchMovieService) {
     this.subscription = this.searchMovieService.onDetailsSubscription().subscribe(data => {
@@ -28,5 +30,13 @@ export class MovieDetailsComponent {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  changePlot() {
+    if (this.plot === "short")
+      this.plot = "full";
+    else
+      this.plot = "short";
+    this.searchMovieService.fetchDetails(this.response?.imdbID, this.plot);
   }
 }

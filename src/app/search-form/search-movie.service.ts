@@ -38,7 +38,7 @@ export class SearchMovieService {
     return await response.json();
   }
 
-  async fetchDetails(id: string, plot: string) {
+  async fetchDetails(id: string | undefined, plot: string) {
     const response = await fetch('http://www.omdbapi.com/?apikey=' + environment.apiKey + '&i=' + id + '&plot=' + plot)
     this.detailsSourse.next(await response.json());
   }
