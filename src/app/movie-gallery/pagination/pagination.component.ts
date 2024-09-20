@@ -20,7 +20,6 @@ export class PaginationComponent {
 
   changePage(p: number) {
     this.searchMovieService.changePage(p);
-    this.currentPage = p;
   }
 
   getPagesAsArray(): number[] {

@@ -7,9 +7,15 @@
                 </button>
             </li>
             @for(p of getPagesAsArray(); track $index) {
-            <li class="page-item" [class.active]="p === currentPage">
+            <li class="page-item" [class.active]="p === currentPage" [class.d-none]="((p-currentPage>3)||(currentPage-p>3))&&p>3&&(pages-p)>2">
                 <button class="page-link" (click)=changePage(p)>
-                    {{p}}
+                    @if(((p-currentPage>2)||(currentPage-p>2))&&p>2&&(pages-p)>1)
+                    {
+                        ...
+                    }
+                    @else{
+                        {{p}}
+                    }
                 </button>
             </li>
             }
