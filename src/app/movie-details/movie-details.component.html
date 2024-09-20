@@ -1,1 +1,44 @@
-<p>movie-details works!</p>
+<div class="container">
+    <a routerLink="">Назад</a>
+    @if(response){
+    <div class="row bordered">
+        <div class="col-5 p-3">
+            <img src="{{response.Poster}}" alt="">
+        </div>
+        <div class="col-7">
+            <div class="row">
+                <div class="col-3 fw-bold">Title:</div>
+                <div class="col-9">{{response.Title}}</div>
+            </div>
+            <div class="row">
+                <div class="col-3 fw-bold">Released:</div>
+                <div class="col-9">{{response.Released}}</div>
+            </div>
+            <div class="row">
+                <div class="col-3 fw-bold">Genre:</div>
+                <div class="col-9">{{response.Genre}}</div>
+            </div>
+            <div class="row">
+                <div class="col-3 fw-bold">Country:</div>
+                <div class="col-9">{{response.Country}}</div>
+            </div>
+            <div class="row">
+                <div class="col-3 fw-bold">Director:</div>
+                <div class="col-9">{{response.Director}}</div>
+            </div>
+            <div class="row">
+                <div class="col-3 fw-bold">Writer:</div>
+                <div class="col-9">{{response.Writer}}</div>
+            </div>
+            <div class="row">
+                <div class="col-3 fw-bold">Actors:</div>
+                <div class="col-9">{{response.Actors}}</div>
+            </div>
+            <div class="row">
+                <div class="col-3 fw-bold">Awards:</div>
+                <div class="col-9">{{response.Awards}}</div>
+            </div>
+        </div>
+    </div>
+    }
+</div>

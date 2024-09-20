@@ -7,9 +7,9 @@ import { Response, ResponseDetails } from '../../../definitions';
   providedIn: 'root'
 })
 export class SearchMovieService {
-  public resourseSource = new BehaviorSubject<Response | null>(null);
-  public pageSource = new BehaviorSubject<number>(0);
-  public detailsSourse = new BehaviorSubject<ResponseDetails | null>(null);
+  private resourseSource = new BehaviorSubject<Response | null>(null);
+  private pageSource = new BehaviorSubject<number>(0);
+  private detailsSourse = new BehaviorSubject<ResponseDetails | null>(null);
   s!: string;
   type!: string;
   pageNumber: number = 1;
@@ -38,8 +38,8 @@ export class SearchMovieService {
     return await response.json();
   }
 
-  async fetchPlot(id: string, plot: string) {
-    const response = await fetch('http://www.omdbapi.com/?apikey=' + environment.apiKey + '&id=' + id + '&plot=' + plot)
+  async fetchDetails(id: string, plot: string) {
+    const response = await fetch('http://www.omdbapi.com/?apikey=' + environment.apiKey + '&i=' + id + '&plot=' + plot)
     this.detailsSourse.next(await response.json());
   }
 
